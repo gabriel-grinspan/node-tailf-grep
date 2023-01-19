@@ -1,6 +1,6 @@
 {
   "name": "tailf-grep",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "tail -F /path/to/file | grep [keywords]",
   "main": "app.js",
   "scripts": {
@@ -8,5 +8,22 @@
   },
   "author": "Gabriel Grinspan",
   "repository": "https://github.com/gabriel-grinspan/node-tailf-grep",
+  "keywords": [
+    "tail",
+    "grep",
+    "log",
+    "file",
+    "stream",
+    "changes",
+    "watch",
+    "tailf",
+    "tail f",
+    "tail F",
+    "tail -f",
+    "tail -F",
+    "tailf-grep",
+    "tail -f | grep",
+    "tail -F | grep"
+  ],
   "license": "MIT/X11"
 }
