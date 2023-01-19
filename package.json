@@ -7,5 +7,6 @@
     "test": "node app.js"
   },
   "author": "Gabriel Grinspan",
+  "repository": "https://github.com/gabriel-grinspan/node-tailf-grep",
   "license": "MIT/X11"
 }
