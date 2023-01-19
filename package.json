@@ -1,0 +1,11 @@
+{
+  "name": "tailf-grep",
+  "version": "1.0.0",
+  "description": "tail -F /path/to/file | grep [keywords]",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "author": "Gabriel Grinspan",
+  "license": "MIT/X11"
+}
