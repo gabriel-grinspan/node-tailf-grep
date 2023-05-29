@@ -1,6 +1,6 @@
 {
   "name": "tailf-grep",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "tail -F /path/to/file | grep [keywords]",
   "main": "app.js",
   "scripts": {
