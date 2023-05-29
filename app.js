@@ -8,7 +8,11 @@ const sleep = ms => {
 	return new Promise(resolve => setTimeout(resolve, ms));
 };
 
-const tailF_grep = async (filepath, keywords = [], callback) => {
+const strContains = (str, keywords) => {
+	return keywords.some(keyword => str.includes(keyword));
+};
+
+const tailF_grep = async (filepath, keywords = [], excludeKeywords = [], callback) => {
 	try {
 		let fileContent = getFileContent(filepath);
 		let charsToTrim = fileContent.length;
@@ -31,7 +35,8 @@ const tailF_grep = async (filepath, keywords = [], callback) => {
 					errorContent = fileContent.slice(charsToTrim);
 				}
 
-				if (errorContent.length > 0 && (keywords.length === 0 || keywords.some(keyword => errorContent.includes(keyword)))) {
+				if (errorContent.length > 0 && (keywords.length === 0 || strContains(errorContent, keywords))
+					&& (excludeKeywords.length === 0 || !strContains(errorContent, excludeKeywords))) {
 					callback(errorContent);
 				}
 			} catch (error) {
@@ -46,8 +51,8 @@ const tailF_grep = async (filepath, keywords = [], callback) => {
 	}
 };
 
-function Tail(filepath, keywords = [], callback) {
-	this.tail = tailF_grep(filepath, keywords, callback);
+function Tail(filepath, keywords = [], excludeKeywords = [], callback) {
+	this.tail = tailF_grep(filepath, keywords, excludeKeywords, callback);
 }
 
 module.exports = Tail;
