@@ -20,3 +20,12 @@ const Tail = require('tailf-grep');
 const fn = changes => { console.error(changes); };
 const tail = new Tail('/var/log/my-app.log', ['ERROR', 'WARNING'], fn);
 ```
+
+## Excluding Text
+You can also tell the tailer to ignore certain text in another array. The below code will tail the file `/var/log/my-app.log` and print the contents of each change to the console provided that the change does not contain a string in the array.
+
+```js
+const Tail = require('tailf-grep');
+const fn = changes => { console.error(changes); };
+const tail = new Tail('/var/log/my-app.log', ['ERROR', 'WARNING'], ['exclude me', 'definitely don\'t report me'], fn);
+```
